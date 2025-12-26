@@ -1,0 +1,13 @@
+[workspace]
+members = ["fin_engine", "snowball_web"]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+authors = ["Milan Šťastný"]
+edition = "2021"
+license = "MIT"
+
+[workspace.dependencies]
+rust_decimal = "1.36"
+serde = { version = "1.0", features = ["derive"] }

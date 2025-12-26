@@ -67,17 +67,77 @@ The engine supports "Market Profiles." The default is **Czech Republic (CZ)**.
 *Agent: Update this at the end of every session.*
 
 ### Current Progress:
-- [x] High-level game design and hybrid loop definition.
-- [x] Financial domain mapping (CZ focus).
-- [ ] Initializing Repository (Trunk + Yew).
+- [x] High-level game design and hybrid loop definition
+- [x] Financial domain mapping (CZ focus)
+- [x] Initialized Repository (Trunk + Yew)
+- [x] Core financial engine architecture (`fin_engine` crate)
+- [x] MarketProfile trait with CzechMarket implementation
+- [x] Three-phase game loop (Planning → Execution → Review)
+- [x] Initialization screen with market/job selection
+- [x] Career system with job progression and salary advancement
+- [x] Housing market with 10 Czech options and moving costs
+- [x] Essential and discretionary budget system
+- [x] Monthly financial settlement with tax calculations
+
+### Latest Session (2025-12-26):
+**Implemented Expense System:**
+- Created housing market with varied affordability options (5,000 - 57,000 Kč/month)
+- Implemented moving costs (2 months security deposit + 1,500 Kč moving fee)
+- Added housing browser modal UI
+- Created budget allocation system with 6 categories
+- Implemented Essential food budget (3,500 Kč/month minimum, adjustable)
+- Added discretionary spending categories (Lifestyle, Health, Transportation, Education, Other)
+- Set up starting cash (50% of first job salary) when accepting first job
+- Housing expenses automatically added to fixed expenses when moving
+
+**Key Decisions:**
+- Phone/Internet is NOT mandatory (removed from essential expenses)
+- Food is Essential with adjustable budget (minimum 3,500 Kč survival level)
+- Housing is the only truly fixed expense (rent + utilities)
+- All other spending is discretionary and optional
 
 ### Active Sprint:
-- Scaffolding the Rust project structure and defining core `FinancialState` structs.
+- Core financial mechanics complete
+- Planning screen functional with job/housing selection and budgets
+- Need to implement Execution phase (day-by-day simulation)
+- Need to implement Review phase (monthly summary)
 
 ### Next Steps:
-- Create `fin_engine` crate with `calculate_taxes(market: MarketProfile)` function.
-- Setup `Trunk.toml` and basic Tailwind integration.
-- Design the "Monthly Planning" UI skeleton.
+1. **Execution Phase Implementation:**
+   - Daily progression through 30 days
+   - Random events/interrupts (market changes, emergencies)
+   - Visual day counter and progress bar
+   - Budget spending simulation during month
+
+2. **Review Phase Implementation:**
+   - Monthly financial summary screen
+   - Net worth change visualization
+   - Income vs expenses breakdown
+   - Show budget performance (over/under spending)
+
+3. **Random Events System:**
+   - Car repairs, medical emergencies
+   - Market fluctuations
+   - Job opportunities/promotions
+   - Lifestyle temptations
+
+4. **Investment System:**
+   - Add savings accounts
+   - Add DIP (Czech retirement account)
+   - Add ETF investments
+   - Implement 3-year tax exemption rule
+
+5. **Behavioral Mechanics:**
+   - Happiness/burnout tracking
+   - Lifestyle creep (expenses rise with promotions)
+   - Revenge spending when unhappy
+
+6. **Polish & Features:**
+   - Save/load game state to LocalStorage
+   - Multiple save slots
+   - Export/import save files
+   - Achievement system
+   - FIRE milestone tracking
 
 ## 9. Operational Rules
 - **Safety First:** No `unwrap()` in financial logic. Use `Result` and handle errors.
